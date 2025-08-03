@@ -83,7 +83,6 @@ This project identifies fraudulent credit card transactions using supervised mac
 
 - Bar plot: Fraud vs Genuine
 - Confusion matrices
-- (Optional) ROC Curve
 
 ---
 
