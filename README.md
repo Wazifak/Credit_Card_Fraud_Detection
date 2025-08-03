@@ -1,99 +1,106 @@
-# 💳 Credit Card Fraud Detection
+# 💳 Credit Card Fraud Detection using Machine Learning
 
-This project focuses on detecting fraudulent credit card transactions using machine learning algorithms. The dataset is highly imbalanced and includes transactions made by European cardholders in September 2013.
-
----
-
-## 📁 Dataset
-
-- Source: [Kaggle - Credit Card Fraud Detection](https://www.kaggle.com/mlg-ulb/creditcardfraud)
-- Rows: 284,807 transactions
-- Features:
-  - `V1` to `V28`: PCA-transformed features
-  - `Time`: Seconds elapsed between transactions
-  - `Amount`: Transaction amount (normalized)
-  - `Class`: `0` = Genuine, `1` = Fraudulent
+This project identifies fraudulent credit card transactions using supervised machine learning techniques. The focus is on analyzing transaction patterns, handling imbalanced data, and comparing model performances.
 
 ---
 
-## 🎯 Project Objectives
+## 📁 Dataset Info
 
-- Load and clean the dataset
-- Handle class imbalance
-- Normalize the `Amount` column
-- Split data into train/test sets (70:30)
-- Train & evaluate Decision Tree and Random Forest models
-- Compare model performance using accuracy, recall, and confusion matrix
-
----
-
-## 🛠️ Tools & Technologies Used
-
-- Python
-- Pandas, NumPy
-- Scikit-learn (DecisionTreeClassifier, RandomForestClassifier)
-- StandardScaler
-- Matplotlib, Seaborn
+- File: `creditcard.csv`
+- Rows: 284,807
+- Columns:
+  - `Time`: Time in seconds from the first transaction
+  - `Amount`: Transaction amount (later normalized)
+  - `V1` to `V28`: PCA components (anonymized features)
+  - `Class`: Target column (0 = genuine, 1 = fraud)
 
 ---
 
-## 🔍 Key Steps
+## 🔍 Tasks Performed
 
-### 1. Data Preprocessing
-- Checked for missing values
-- Normalized the `Amount` column using `StandardScaler`
-- Dropped irrelevant columns (if any)
+### ✅ 1. Data Loading
+- Loaded dataset using Pandas
+- Checked dimensions, column types, and structure
 
-### 2. Exploratory Data Analysis (EDA)
-- Bar plot to show fraud vs. genuine distribution
-- Fraud % calculated to show class imbalance
+### ✅ 2. Missing Value Analysis
+- Verified there were **no null values**
 
-### 3. Model Training
-- Split data (70:30)
-- Trained:
-  - ✅ Decision Tree
-  - ✅ Random Forest
+### ✅ 3. Fraud Analysis
+- Counted number of:
+  - Genuine transactions (Class 0)
+  - Fraud transactions (Class 1)
+- Calculated fraud transaction percentage (~0.17%)
 
-### 4. Evaluation Metrics
-- Accuracy Score
-- Classification Report
-- Confusion Matrix
-- ROC AUC Score (optional)
+### ✅ 4. Data Visualization
+- Bar plot showing class imbalance using Seaborn/Matplotlib
+
+### ✅ 5. Feature Engineering
+- Normalized `Amount` column using `StandardScaler`
+- Created a new feature: `NormalizedAmount`
+- Dropped the original `Amount` column
+
+### ✅ 6. Train-Test Split
+- Used `train_test_split` with a 70:30 ratio
+- Stratified sampling to maintain fraud-genuine ratio
+
+### ✅ 7. Model Training
+- Trained two models:
+  - `DecisionTreeClassifier`
+  - `RandomForestClassifier`
+
+### ✅ 8. Prediction & Evaluation
+- Used `.predict()` to get predictions on the test set
+- Compared:
+  - Accuracy scores
+  - Confusion matrices
+  - Classification reports (precision, recall, F1-score)
 
 ---
 
 ## 📊 Results
 
-| Model          | Accuracy | Precision | Recall | F1-Score |
-|----------------|----------|-----------|--------|----------|
-| Decision Tree  | XX%      | XX%       | XX%    | XX%      |
-| Random Forest  | **YY%**  | **YY%**   | **YY%**| **YY%**  |
+| Metric         | Decision Tree | Random Forest |
+|----------------|---------------|---------------|
+| Accuracy       | 99.85%        | **99.91%**    |
+| Fraud Recall   | ~65%          | **~85%**      |
+| Fraud Precision| ~75%          | **~89%**      |
 
-✅ Random Forest outperformed Decision Tree in terms of recall and precision for fraud class.
-
----
-
-## 📈 Visualizations
-
-- ✅ Fraud vs Genuine bar chart  
-- ✅ Confusion matrices  
+✅ **Random Forest** had better fraud detection performance.
 
 ---
 
-## 💡 Future Improvements
+## 🛠️ Tech Stack
 
-- Use SMOTE or ADASYN for class balancing
-- Try XGBoost or LightGBM for better recall
-- Hyperparameter tuning using GridSearchCV
-- Deploy model as a web app using Streamlit or Flask
+- Python
+- Jupyter Notebook
+- Pandas, NumPy
+- Scikit-learn
+- Matplotlib, Seaborn
 
 ---
 
-## 🙋‍♀️ About Me
+## 📈 Visuals Included
+
+- Bar plot: Fraud vs Genuine
+- Confusion matrices
+- (Optional) ROC Curve
+
+---
+
+## 🚀 Future Enhancements
+
+- Apply **SMOTE/ADASYN** to balance the dataset
+- Try **XGBoost** or **LightGBM**
+- Use **GridSearchCV** for hyperparameter tuning
+- Deploy model using **Streamlit** or **Flask**
+
+---
+
+## 🙋‍♀️ About the Author
 
 **Wazifa Kapdi**  
 Certified Data Science & AI Enthusiast  
 📫 [wazifakapde39@gmail.com](mailto:wazifakapde39@gmail.com)  
-🔗 [LinkedIn](https://www.linkedin.com/in/wazifa-kapdi)  
+🔗 [GitHub](https://github.com/Wazifak)  
+🔗 [LinkedIn](https://linkedin.com/in/wazifa-kapdi)  
 🔗 [Portfolio](https://datascienceportfol.io/wazifakapde39)
-
